@@ -1,0 +1,38 @@
+{
+  "name": "typescript-node-app",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "packageManager": "pnpm@12.21.0",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "dev:debug": "tsx watch --inspect src/index.ts",
+    "build": "node scripts/clean.mjs && tsc -p tsconfig.build.json && tsc-alias -p tsconfig.build.json",
+    "start": "node dist/index.js",
+    "clean": "node scripts/clean.mjs",
+    "format": "biome format --write .",
+    "format:check": "biome format .",
+    "lint": "biome lint --write .",
+    "lint:check": "biome lint .",
+    "type:check": "tsc -p tsconfig.json",
+    "test": "tsx --test tests",
+    "test:watch": "node --import tsx --test --watch tests",
+    "test:unit": "tsx --test tests/unit",
+    "test:integration": "tsx --test tests/integration",
+    "test:coverage": "node --import tsx --test --experimental-test-coverage --test-coverage-exclude=tests/** --test-coverage-lines=95 --test-coverage-functions=95 --test-coverage-branches=85 tests",
+    "test:check": "tsc -p tsconfig.json",
+    "biome": "biome check --write .",
+    "biome:check": "biome check .",
+    "check": "npm run biome:check && npm run type:check"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.6.8",
+    "@types/node": "^26.6.6",
+    "tsc-alias": "^1.9.10",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  }
+}

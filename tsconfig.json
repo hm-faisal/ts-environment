@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "compilerOptions": {
+    /* Language and environment ------------------------------------------ */
+    // Run directly on modern Node.js; nothing is downleveled.
+    "target": "esnext",
+    "lib": ["esnext"],
+    // Native Node.js types only (TypeScript 7 defaults "types" to []).
+    "types": ["node"],
+
+    /* Modules ------------------------------------------------------------ */
+    // Native ESM emit; "bundler"-style resolution so extensionless imports
+    // and path aliases type-check. Emitted alias specifiers are rewritten to
+    // relative specifiers at build time by tsc-alias (see tsconfig.build.json).
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    // Aliases are relative to the tsconfig location (no baseUrl in TS 7).
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+
+    /* Strictness ---------------------------------------------------------- */
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "noImplicitOverride": true,
+    "forceConsistentCasingInFileNames": true,
+    "verbatimModuleSyntax": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "noUncheckedSideEffectImports": true,
+
+    /* Emit ---------------------------------------------------------------- */
+    // Type checking only; tsconfig.build.json enables emit for production.
+    "noEmit": true,
+    "skipLibCheck": true
+  },
+  "include": ["src", "tests"]
+}

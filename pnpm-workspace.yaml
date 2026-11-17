@@ -1,0 +1,4 @@
+# pnpm workspace/settings file. For a single-package repo this only holds
+# pnpm settings. esbuild's install script is required for tsx to work.
+allowBuilds:
+  esbuild: true
